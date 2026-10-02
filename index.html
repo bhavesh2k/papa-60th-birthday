@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0a0b" />
+  <meta name="description" content="A birthday celebration for Papa's 60th." />
+  <title>Cheers to 60, Papa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="overrides.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div id="confetti" aria-hidden="true"></div>
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-glow"></div>
+      <p class="eyebrow intro-fade">A celebration of a life beautifully lived</p>
+      <div class="sixty" aria-label="60"><span>6</span><i>0</i></div>
+      <h1 class="intro-fade delay-1">60 years of <em>Love, Laughter</em><br>&amp; Memories <span>♥</span></h1>
+      <p class="hero-note intro-fade delay-2">For the man who makes our world feel like home.</p>
+      <button class="surprise-button intro-fade delay-3" id="open-surprise">✨ Open Your Surprise <b>↓</b></button>
+      <p class="scroll-cue intro-fade delay-3">Scroll to unwrap</p>
+    </section>
+
+    <section class="dedication reveal" id="journey">
+      <p class="eyebrow">Today, we celebrate you</p>
+      <h2>Happy 60th<br><em>Birthday, Papa!</em></h2>
+      <div class="gold-rule"><span>✦</span></div>
+      <p class="large-copy">Six decades of generous love, steady strength, contagious laughter, and moments that have shaped all of us.</p>
+    </section>
+
+    <section class="memories">
+      <div class="section-heading reveal">
+        <p class="eyebrow">The memory journal</p>
+        <h2>A life in <em>golden moments</em></h2>
+      </div>
+      <div class="memory-grid">
+        <article class="memory-card tall reveal"><div class="photo-placeholder"><span>01</span><p>Add a favourite family photo</p></div><div class="card-caption"><span>Then</span><h3>The beginning of your story</h3></div></article>
+        <article class="memory-card reveal delay-small"><div class="photo-placeholder warm"><span>02</span><p>Add a childhood or early-days photo</p></div><div class="card-caption"><span>Always</span><h3>Every laugh, every lesson</h3></div></article>
+        <article class="memory-card wide reveal"><div class="photo-placeholder deep"><span>03</span><p>Add your favourite family photo</p></div><div class="card-caption"><span>Now</span><h3>The heart of every gathering</h3></div></article>
+      </div>
+      <p class="replace-note reveal">Your photos will make this page unmistakably his.</p>
+    </section>
+
+    <section class="timeline reveal">
+      <div class="section-heading"><p class="eyebrow">A beautiful journey</p><h2>60 years, <em>countless stories</em></h2></div>
+      <div class="timeline-line"></div>
+      <div class="milestones">
+        <div class="milestone"><span class="year">1966</span><i></i><p>A remarkable life begins</p></div>
+        <div class="milestone"><span class="year">1990s</span><i></i><p>Building a loving family</p></div>
+        <div class="milestone"><span class="year">Today</span><i></i><p>Still making every day brighter</p></div>
+      </div>
+    </section>
+
+    <section class="letter reveal">
+      <div class="letter-inner">
+        <p class="eyebrow">A note for you</p>
+        <span class="quote-mark">“</span>
+        <blockquote id="personal-message">Papa,<br><br>60 years isn't just a number. It's 60 years of stories, sacrifice, laughter, lessons and memories.<br><br>Thank you for being the person we can always count on.<br><br>Today isn't just about celebrating your birthday. It's about celebrating you.<br><br>Happy 60th Birthday, Papa <span aria-label="heart">♥</span></blockquote>
+        <p class="signature">With all our love,<br><em>Your family</em></p>
+      </div>
+    </section>
+
+    <section class="finale" id="finale">
+      <div class="finale-glow"></div>
+      <p class="eyebrow">One last surprise</p>
+      <h2>Make a wish,<br><em>dearest Papa.</em></h2>
+      <div class="cake-wrap" id="cake" role="button" tabindex="0" aria-label="Celebrate with confetti">
+        <div class="candle candle-one"><span class="flame"></span><i class="smoke"></i></div><div class="candle candle-two"><span class="flame"></span><i class="smoke"></i></div>
+        <div class="number-candles">60</div>
+        <div class="cake-top"></div><div class="cake-frosting"></div><div class="cake-body"><b></b><b></b><b></b></div><div class="cake-plate"></div>
+      </div>
+      <button class="celebrate-button" id="celebrate">Celebrate 60! <span>✦</span></button>
+      <p class="cake-hint">Tap the cake for a little magic</p>
+      <footer>Made with <span>♥</span> for Papa's 60th birthday</footer>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
