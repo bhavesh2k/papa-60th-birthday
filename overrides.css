@@ -3,6 +3,11 @@
 .sixty { line-height: .75; margin: -.04em 0 0 0; padding: .06em .25em .18em; }
 h1 { margin-top: 25px; }
 
+/* Eyebrow breathing room in Hero above crown */
+.hero .eyebrow {
+  margin-bottom: 34px;
+}
+
 /* Regal Gold Crown on Top of 60 */
 .sixty-wrap {
   position: relative;
@@ -17,9 +22,9 @@ h1 { margin-top: 25px; }
 
 .crown {
   position: absolute;
-  top: -18%;
-  left: 13%;
-  width: clamp(58px, 9.2vw, 112px);
+  top: -8%;
+  left: 13.5%;
+  width: clamp(56px, 8.8vw, 108px);
   transform: rotate(-13deg);
   transform-origin: bottom center;
   z-index: 4;
@@ -39,15 +44,18 @@ h1 { margin-top: 25px; }
     transform: rotate(-13deg) translateY(0);
   }
   100% {
-    transform: rotate(-10deg) translateY(-5px);
+    transform: rotate(-10deg) translateY(-4px);
   }
 }
 
 @media (max-width: 650px) {
+  .hero .eyebrow {
+    margin-bottom: 28px;
+  }
   .crown {
-    top: -22%;
-    left: 12%;
-    width: clamp(48px, 15.5vw, 75px);
+    top: -10%;
+    left: 13%;
+    width: clamp(46px, 14.5vw, 72px);
   }
 }
 
@@ -252,17 +260,41 @@ h1 { margin-top: 25px; }
   object-position: center 36%;
 }
 
+/* Card 4: Full-width Family Gathering / Together (At home with family) */
+.memory-card.full-width {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.memory-card.full-width .photo-placeholder {
+  height: 440px;
+}
+
+.photo-placeholder.home {
+  background: linear-gradient(135deg, #2e181c, #6c4238 52%, #b58242);
+}
+
+.memory-card.full-width .memory-img {
+  object-position: center 36%;
+}
+
 /* Mobile responsive sizing */
 @media (max-width: 650px) {
   .memory-card.tall .photo-placeholder {
     height: 420px;
     min-height: unset;
   }
-  .memory-card:not(.tall):not(.wide) .photo-placeholder {
+  .memory-card:not(.tall):not(.wide):not(.full-width) .photo-placeholder {
     height: 235px;
   }
   .memory-card.wide .photo-placeholder {
     height: 390px;
+  }
+  .memory-card.full-width .photo-placeholder {
+    height: 230px;
+  }
+  .memory-card.full-width {
+    margin-bottom: 0;
   }
 }
 
