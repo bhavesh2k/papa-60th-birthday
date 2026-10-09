@@ -17,13 +17,17 @@ function updateMusicUI(playing) {
   }
 }
 
+let isMusicStarted = false;
+
 function startMusic() {
   if (!bgMusic) return;
   bgMusic.volume = 0.85;
   const playPromise = bgMusic.play();
   if (playPromise !== undefined) {
     playPromise.then(() => {
+      isMusicStarted = true;
       updateMusicUI(true);
+      removeGestureListeners();
     }).catch(() => {
       // Browser blocked autoplay until user gesture
       updateMusicUI(false);
@@ -52,7 +56,7 @@ if (musicToggle) {
   musicToggle.addEventListener('click', toggleMusic);
 }
 
-// 1. Immediate autoplay attempts on page load
+// 1. Immediate autoplay attempts on load
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', startMusic);
 } else {
@@ -60,19 +64,54 @@ if (document.readyState === 'loading') {
 }
 window.addEventListener('load', startMusic);
 
-// 2. Fallback: on user's first touch, scroll, or keypress anywhere on the page
-function autoPlayOnGesture() {
-  if (bgMusic && bgMusic.paused) {
-    startMusic();
+// 2. Resilient fallback: unlocks audio on the very first touch, swipe, scroll, or tap
+function handleUserGesture() {
+  if (isMusicStarted) {
+    removeGestureListeners();
+    return;
   }
-  ['pointerdown', 'touchstart', 'click', 'keydown', 'wheel', 'scroll'].forEach((evt) => {
-    window.removeEventListener(evt, autoPlayOnGesture);
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (AudioCtx) {
+      if (!window.__bgAudioCtx) window.__bgAudioCtx = new AudioCtx();
+      if (window.__bgAudioCtx.state === 'suspended') {
+        window.__bgAudioCtx.resume().catch(() => {});
+      }
+    }
+  } catch (e) {}
+
+  startMusic();
+}
+
+const gestureEvents = [
+  'touchstart',
+  'touchend',
+  'touchmove',
+  'pointerdown',
+  'pointerup',
+  'mousedown',
+  'mouseup',
+  'click',
+  'keydown',
+  'wheel',
+  'scroll'
+];
+
+function addGestureListeners() {
+  gestureEvents.forEach((evt) => {
+    window.addEventListener(evt, handleUserGesture, { capture: true, passive: true });
+    document.addEventListener(evt, handleUserGesture, { capture: true, passive: true });
   });
 }
 
-['pointerdown', 'touchstart', 'click', 'keydown', 'wheel', 'scroll'].forEach((evt) => {
-  window.addEventListener(evt, autoPlayOnGesture, { passive: true, once: true });
-});
+function removeGestureListeners() {
+  gestureEvents.forEach((evt) => {
+    window.removeEventListener(evt, handleUserGesture, { capture: true });
+    document.removeEventListener(evt, handleUserGesture, { capture: true });
+  });
+}
+
+addGestureListeners();
 
 openButton.addEventListener('click', () => {
   startMusic();
