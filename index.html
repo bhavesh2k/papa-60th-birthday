@@ -12,12 +12,27 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=3" />
-  <link rel="stylesheet" href="overrides.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="overrides.css?v=4" />
 </head>
 <body>
   <div class="grain"></div>
   <div id="confetti" aria-hidden="true"></div>
+  <audio id="bg-music" loop autoplay preload="auto" src="assets/music.mp3"></audio>
+  <button class="music-toggle" id="music-toggle" type="button" aria-label="Play background music" title="Play background music">
+    <span class="music-icon" aria-hidden="true">
+      <svg class="icon-play" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+    </span>
+    <span class="music-waves" aria-hidden="true">
+      <i></i><i></i><i></i><i></i>
+    </span>
+    <span class="music-label">Music</span>
+  </button>
   <main>
     <section class="hero" id="top">
       <div class="hero-glow"></div>
@@ -42,11 +57,35 @@
         <h2>A life in <em>golden moments</em></h2>
       </div>
       <div class="memory-grid">
-        <article class="memory-card tall reveal"><div class="photo-placeholder"><span>01</span><p>Add a favourite family photo</p></div><div class="card-caption"><span>Then</span><h3>The beginning of your story</h3></div></article>
-        <article class="memory-card reveal delay-small"><div class="photo-placeholder warm"><span>02</span><p>Add a childhood or early-days photo</p></div><div class="card-caption"><span>Always</span><h3>Every laugh, every lesson</h3></div></article>
-        <article class="memory-card wide reveal"><div class="photo-placeholder deep"><span>03</span><p>Add your favourite family photo</p></div><div class="card-caption"><span>Now</span><h3>The heart of every gathering</h3></div></article>
+        <article class="memory-card tall reveal">
+          <div class="photo-placeholder">
+            <img src="assets/photo-1.jpg" alt="Young Papa in his early days" class="memory-img" loading="lazy" decoding="async" />
+          </div>
+          <div class="card-caption">
+            <span>Then</span>
+            <h3>The beginning of your story</h3>
+          </div>
+        </article>
+        <article class="memory-card reveal delay-small">
+          <div class="photo-placeholder warm">
+            <img src="assets/photo-2.jpg" alt="Papa and Mum with their young sons on a scenic holiday" class="memory-img" loading="lazy" decoding="async" />
+          </div>
+          <div class="card-caption">
+            <span>Always</span>
+            <h3>Every laugh, every lesson</h3>
+          </div>
+        </article>
+        <article class="memory-card wide reveal">
+          <div class="photo-placeholder deep">
+            <img src="assets/photo-3.jpg" alt="Papa taking a sunny holiday selfie with Mum and their two sons" class="memory-img" loading="lazy" decoding="async" />
+          </div>
+          <div class="card-caption">
+            <span>Now</span>
+            <h3>The heart of every gathering</h3>
+          </div>
+        </article>
       </div>
-      <p class="replace-note reveal">Your photos will make this page unmistakably his.</p>
+      <p class="replace-note reveal">Six decades of memories, each one holding a piece of your heart.</p>
     </section>
 
     <section class="timeline reveal">
@@ -84,6 +123,6 @@
       <footer>Made with <span>♥</span> for Papa's 60th birthday</footer>
     </section>
   </main>
-  <script src="script.js"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
